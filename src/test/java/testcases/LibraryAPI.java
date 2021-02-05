@@ -21,6 +21,8 @@ public class LibraryAPI extends base{
 		return data;
 	}
 
+//Add Books specified in excel to the library 
+	
 	@Test(dataProvider ="AddBook" )
 	public void AddBook(String isbn, String asile) {
 		RestAssured.baseURI = "http://216.10.245.166";
@@ -40,6 +42,9 @@ public class LibraryAPI extends base{
 		Assert.assertEquals(SuccessMessage, "successfully added");
 	}
 
+
+//Deletes Books added  in addbook test^
+	
 	@Test(dataProvider = "AddBook", dependsOnMethods = "AddBook")
 	public void deleteBook(String isbn, String asile) {
 		RestAssured.baseURI = "http://216.10.245.166";
